@@ -1,0 +1,111 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+}
+h1,h2{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --spacing-medium : 8px;
+    --spacing-regular : 16px;
+    --font-regular : 1rem;
+    --font-small : 0.5rem;
+    --font-large : 2rem;
+    --font-xlarge : 4rem;
+}
+body{
+    margin : 0;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 400px;
+    height: fit-content;
+    margin: auto;
+}
+.container{
+    display: grid;
+    grid-template-areas: 
+    "current current"
+    "hour hour"
+    "five five"
+    "feels humid";
+    gap: var(--spacing-medium);
+}
+.container,
+.container>div{
+    box-shadow:  rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: var(--spacing-regular);
+    padding: var(--spacing-regular);
+}
+#current-forecast{
+    grid-area: current;
+    text-align: center;
+}
+#current-forecast > .temp{
+    font-size: var(--font-large);
+}
+#hourly-forecast{
+    grid-area: hour;
+}
+#hourly-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+}
+#hourly-forecast h1{
+    text-align: center;
+    padding: 5%;
+}
+h2{
+    font-size: medium;
+}
+.single-hour{
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+}
+#fiveday-forecast{
+    grid-area: five;
+}
+#feels-like{
+    grid-area: feels;
+}
+#humidity{
+    grid-area: humid;
+}
+
+#current-forecast p{
+    margin: 2%;
+}
+
+.single-hour:hover{
+    text-align: center;
+    border-radius: 5px;
+    box-shadow:  rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition-property: transform;
+    transition-property: box-shadow;
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+    padding: 10px;
+}
+
+@media only screen and (width>=400px) {
+    .body{
+        display: grid;
+    }
+    .container{
+        display: grid;
+        width: fit-content;
+        grid-template-areas: 
+            "current  current feels humid"
+            "hour hour hour hour";
+        gap: var(--spacing-medium);
+    }
+    #hourly-container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 30px;
+    }
+}
